@@ -622,6 +622,7 @@ export default {
     exitOnClose: 'Exit APP On Window Close',
     closeKernelOnExit: 'Close Kernel When APP Exits',
     autoSetSystemProxy: 'Auto Set / Clear System Proxy',
+    ipv6SystemProxy: 'IPv6 System Proxy',
     autoStartKernel: 'Auto Start Kernel',
     admin: 'Run As Admin',
     addToMenu: 'Add Plugin To Menu',

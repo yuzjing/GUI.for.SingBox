@@ -262,6 +262,13 @@ if (envStore.env.os === 'windows') {
     </div>
     <div class="settings-item">
       <div class="title">
+        {{ t('settings.ipv6SystemProxy') }}
+        <span class="tips">({{ t('settings.needRestart') }})</span>
+      </div>
+      <Switch v-model="appSettings.app.ipv6SystemProxy" />
+    </div>
+    <div class="settings-item">
+      <div class="title">
         {{ t('settings.autoStartKernel') }}
       </div>
       <Switch v-model="appSettings.app.autoStartKernel" />

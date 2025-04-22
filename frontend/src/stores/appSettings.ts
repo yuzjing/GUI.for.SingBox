@@ -32,6 +32,7 @@ type AppSettings = {
   closeKernelOnExit: boolean
   autoSetSystemProxy: boolean
   autoStartKernel: boolean
+  ipv6SystemProxy: boolean
   userAgent: string
   startupDelay: number
   connections: {
@@ -81,6 +82,7 @@ export const useAppSettingsStore = defineStore('app-settings', () => {
     closeKernelOnExit: true,
     autoSetSystemProxy: true,
     autoStartKernel: false,
+    ipv6SystemProxy: false,
     userAgent: APP_TITLE + '/' + APP_VERSION,
     startupDelay: 30,
     connections: {

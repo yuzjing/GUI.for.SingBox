@@ -622,6 +622,7 @@ export default {
     exitOnClose: 'خروج از برنامه هنگام بستن پنجره',
     closeKernelOnExit: 'بستن هسته هنگام خروج از برنامه',
     autoSetSystemProxy: 'تنظیم خودکار / پاک کردن پروکسی سیستم',
+    ipv6SystemProxy: 'پروکسی سیستمی IPv6',
     autoStartKernel: 'شروع خودکار هسته',
     admin: 'اجرا به عنوان ادمین',
     addToMenu: 'افزودن پلاگین به منو',
