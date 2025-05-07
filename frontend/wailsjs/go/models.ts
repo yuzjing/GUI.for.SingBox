@@ -125,6 +125,7 @@ export namespace bridge {
 	export class RequestOptions {
 	    Proxy: string;
 	    Insecure: boolean;
+	    Redirect: boolean;
 	    Timeout: number;
 	    CancelId: string;
 	    FileField: string;
@@ -137,14 +138,20 @@ export namespace bridge {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.Proxy = source["Proxy"];
 	        this.Insecure = source["Insecure"];
+	        this.Redirect = source["Redirect"];
 	        this.Timeout = source["Timeout"];
 	        this.CancelId = source["CancelId"];
 	        this.FileField = source["FileField"];
 	    }
 	}
 	export class ServerOptions {
-	    cert: string;
-	    key: string;
+	    Cert: string;
+	    Key: string;
+	    StaticPath: string;
+	    StaticRoute: string;
+	    UploadPath: string;
+	    UploadRoute: string;
+	    MaxUploadSize: number;
 	
 	    static createFrom(source: any = {}) {
 	        return new ServerOptions(source);
@@ -152,8 +159,13 @@ export namespace bridge {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.cert = source["cert"];
-	        this.key = source["key"];
+	        this.Cert = source["Cert"];
+	        this.Key = source["Key"];
+	        this.StaticPath = source["StaticPath"];
+	        this.StaticRoute = source["StaticRoute"];
+	        this.UploadPath = source["UploadPath"];
+	        this.UploadRoute = source["UploadRoute"];
+	        this.MaxUploadSize = source["MaxUploadSize"];
 	    }
 	}
 	export class TrayContent {

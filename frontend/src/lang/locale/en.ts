@@ -416,6 +416,7 @@ export default {
     editProxies: 'Edit Proxies',
     editSourceFile: 'Edit Proxies(Source)',
     copySub: 'Copy Link',
+    script: 'Script',
     proxies: {
       type: 'Protocol',
       name: 'Name',
@@ -644,6 +645,8 @@ export default {
       restart: 'Restart Core',
       risk: 'This version is not auto-built by GitHub and may pose a security risk.',
       stillDownload: 'Still download',
+      rollbackTip: 'Rollback to the previous version',
+      rollback: 'Are you sure you want to roll back to the previous version?',
     },
     userAgent: {
       name: 'User-Agent',

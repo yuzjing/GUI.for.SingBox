@@ -3,14 +3,18 @@ package bridge
 import (
 	"context"
 	"net/http"
+
+	"github.com/wailsapp/wails/v2/pkg/menu"
 )
 
 // App struct
 type App struct {
-	Ctx context.Context
+	Ctx     context.Context
+	AppMenu *menu.Menu
 }
 
 type EnvResult struct {
+	IsStartup   bool   `json:"-"`
 	FromTaskSch bool   `json:"-"`
 	AppName     string `json:"appName"`
 	BasePath    string `json:"basePath"`
@@ -22,6 +26,7 @@ type EnvResult struct {
 type RequestOptions struct {
 	Proxy     string
 	Insecure  bool
+	Redirect  bool
 	Timeout   int
 	CancelId  string
 	FileField string
@@ -43,8 +48,13 @@ type FlagResult struct {
 }
 
 type ServerOptions struct {
-	Cert string `json:"cert"`
-	Key  string `json:"key"`
+	Cert          string `json:"Cert"`
+	Key           string `json:"Key"`
+	StaticPath    string `json:"StaticPath"`
+	StaticRoute   string `json:"StaticRoute"`
+	UploadPath    string `json:"UploadPath"`
+	UploadRoute   string `json:"UploadRoute"`
+	MaxUploadSize int64  `json:"MaxUploadSize"`
 }
 
 type HTTPResult struct {

@@ -416,6 +416,7 @@ export default {
     editProxies: 'ویرایش پروکسی‌ها',
     editSourceFile: 'ویرایش فایل پروکسی‌ها (منبع)',
     copySub: 'کپی لینک',
+    script: 'اسکریپت',
     proxies: {
       type: 'پروتکل',
       name: 'نام',
@@ -644,6 +645,8 @@ export default {
       restart: 'راه‌اندازی مجدد هسته',
       risk: 'این نسخه به طور خودکار توسط GitHub ساخته نمی‌شود و ممکن است خطرات امنیتی داشته باشد.',
       stillDownload: 'هنوز دانلود شود',
+      rollbackTip: 'بازگشت به نسخه قبلی',
+      rollback: 'آیا مطمئن هستید که می‌خواهید به نسخه قبلی بازگردید؟',
     },
     userAgent: {
       name: 'User-Agent',
