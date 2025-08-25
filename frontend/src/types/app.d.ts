@@ -69,10 +69,19 @@ export interface AppSettings {
     autoClose: boolean
     unAvailable: boolean
     cardMode: boolean
+    cardColumns: number
     sortByDelay: boolean
     testUrl: string
     concurrencyLimit: number
     controllerCloseMode: ControllerCloseMode
+    main: {
+      env: Recordable
+      args: string[]
+    }
+    alpha: {
+      env: Recordable
+      args: string[]
+    }
   }
   pluginSettings: Record<string, Record<string, any>>
   githubApiToken: string
@@ -112,6 +121,7 @@ export interface Plugin {
   url: string
   path: string
   triggers: PluginTrigger[]
+  tags: string[]
   hasUI: boolean
   menus: Record<string, string>
   context: {

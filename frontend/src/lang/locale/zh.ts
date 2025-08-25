@@ -47,6 +47,7 @@ export default {
     canceled: '已取消',
     downloading: '下载中...',
     empty: '数据为空',
+    pressAgainToClose: '再按一次关闭弹窗',
   },
   kernel: {
     rule: '规则',
@@ -353,6 +354,7 @@ export default {
       sortBy: '按延迟排序',
       delay: '延迟测试URL',
       concurrencyLimit: '延迟测试并发数量',
+      cardColumns: '卡片展示列数',
       closeMode: {
         name: '控制器关闭模式',
         all: '滚动和关闭按钮',
@@ -652,6 +654,11 @@ export default {
       rollbackTip: '回滚到上一版本',
       rollback: '确定回滚到上一版本吗？',
       clearCache: '清除缓存',
+      config: {
+        name: '运行时配置',
+        env: '环境变量',
+        args: '运行参数',
+      },
     },
     userAgent: {
       name: '用户代理(User-Agent)',

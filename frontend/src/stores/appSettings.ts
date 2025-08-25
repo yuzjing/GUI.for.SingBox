@@ -11,12 +11,13 @@ import {
 } from '@/bridge'
 import {
   Colors,
+  DefaultCardColumns,
   DefaultConcurrencyLimit,
   DefaultFontFamily,
   DefaultTestURL,
   UserFilePath,
 } from '@/constant/app'
-import { DefaultConnections } from '@/constant/kernel'
+import { DefaultConnections, DefaultCoreConfig } from '@/constant/kernel'
 import {
   Theme,
   WindowStartState,
@@ -67,10 +68,13 @@ export const useAppSettingsStore = defineStore('app-settings', () => {
       autoClose: true,
       unAvailable: true,
       cardMode: true,
+      cardColumns: DefaultCardColumns,
       sortByDelay: false,
       testUrl: DefaultTestURL,
       concurrencyLimit: DefaultConcurrencyLimit,
       controllerCloseMode: ControllerCloseMode.All,
+      main: DefaultCoreConfig(),
+      alpha: DefaultCoreConfig(),
     },
     pluginSettings: {},
     githubApiToken: '',
@@ -117,6 +121,15 @@ export const useAppSettingsStore = defineStore('app-settings', () => {
         (field) =>
           !['metadata.process', 'metadata.sniffHost', 'metadata.remoteDestination'].includes(field),
       )
+    }
+
+    if (!app.value.kernel.main) {
+      app.value.kernel.main = DefaultCoreConfig()
+      app.value.kernel.alpha = DefaultCoreConfig()
+    }
+
+    if (!app.value.kernel.cardColumns) {
+      app.value.kernel.cardColumns = DefaultCardColumns
     }
 
     firstOpen = !!data

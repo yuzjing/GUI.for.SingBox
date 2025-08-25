@@ -21,6 +21,8 @@ export const ScheduledTasksFilePath = 'data/scheduledtasks.yaml'
 
 export const PluginHubFilePath = 'data/.cache/plugin-list.json'
 
+export const RulesetHubFilePath = 'data/.cache/ruleset-list.json'
+
 export const DefaultFontFamily =
   'system-ui, "Microsoft YaHei UI", "Source Han Sans CN", "Twemoji Mozilla", sans-serif'
 
@@ -105,3 +107,5 @@ export const DefaultSubscribeScript = `const onSubscribe = async (proxies, subsc
 export const DefaultTestURL = 'https://www.gstatic.com/generate_204'
 
 export const DefaultConcurrencyLimit = 20
+
+export const DefaultCardColumns = 5

@@ -47,6 +47,7 @@ export default {
     canceled: 'لغو شد',
     downloading: 'در حال دانلود...',
     empty: 'داده‌ای وجود ندارد',
+    pressAgainToClose: 'برای بستن پنجره دوباره فشار دهید',
   },
   kernel: {
     rule: 'قانون',
@@ -354,6 +355,7 @@ export default {
       sortBy: 'مرتب‌سازی بر اساس تأخیر',
       delay: 'آزمایش تأخیر URL',
       concurrencyLimit: 'همزمانی در تست تأخیر',
+      cardColumns: 'تعداد ستون‌های کارت',
       closeMode: {
         name: 'حالت بستن کنترلر',
         all: 'اسکرول یا دکمه',
@@ -653,6 +655,11 @@ export default {
       rollbackTip: 'بازگشت به نسخه قبلی',
       rollback: 'آیا مطمئن هستید که می‌خواهید به نسخه قبلی بازگردید؟',
       clearCache: 'پاک‌سازی کش',
+      config: {
+        name: 'پیکربندی زمان اجرا',
+        env: 'متغیرهای محیطی',
+        args: 'آرگومان‌های زمان اجرا',
+      },
     },
     userAgent: {
       name: 'User-Agent',

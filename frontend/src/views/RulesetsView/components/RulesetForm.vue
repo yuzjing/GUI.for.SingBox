@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 
 import { RulesetFormatOptions } from '@/constant/kernel'
 import { RulesetFormat } from '@/enums/kernel'
-import { type RuleSetType, useRulesetsStore } from '@/stores'
+import { type RuleSet, useRulesetsStore } from '@/stores'
 import { deepClone, message, sampleID } from '@/utils'
 
 import Button from '@/components/Button/index.vue'
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const loading = ref(false)
 
-const ruleset = ref<RuleSetType>({
+const ruleset = ref<RuleSet>({
   id: sampleID(),
   tag: '',
   updateTime: 0,
@@ -150,7 +150,7 @@ defineExpose({ modalSlots })
     </div>
     <div class="form-item">
       {{ t('ruleset.name') }} *
-      <Input v-model="ruleset.tag" auto-size autofocus class="input" />
+      <Input v-model="ruleset.tag" autofocus class="min-w-[75%]" />
     </div>
     <div v-show="ruleset.type !== 'Manual'" class="form-item">
       {{ t('ruleset.url') }} *
@@ -161,7 +161,7 @@ defineExpose({ modalSlots })
             ? 'http(s)://'
             : 'data/local/{filename}.' + (ruleset.format === RulesetFormat.Binary ? 'srs' : 'json')
         "
-        auto-size
+        class="min-w-[75%]"
       />
     </div>
     <div class="form-item">
@@ -169,7 +169,7 @@ defineExpose({ modalSlots })
       <Input
         v-model="ruleset.path"
         :placeholder="`data/rulesets/{filename}.${ruleset.format === RulesetFormat.Binary ? 'srs' : 'json'}`"
-        auto-size
+        class="min-w-[75%]"
       />
     </div>
   </div>

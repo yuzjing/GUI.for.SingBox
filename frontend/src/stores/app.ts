@@ -47,9 +47,14 @@ export const useAppStore = defineStore('app', () => {
     y: 0,
   })
 
+  /* Modal Stack */
+  const modalStack: (() => void)[] = []
+  const modalZIndexCounter = 999
+
   /* Actions */
   const customActions = ref<Recordable<(CustomAction | CustomActionFn)[]>>({
     core_state: [],
+    title_bar: [],
   })
   const addCustomActions = (
     target: string,
@@ -123,6 +128,7 @@ export const useAppStore = defineStore('app', () => {
       }
 
       await Removefile(downloadCacheFile)
+      await ignoredError(Removefile, 'data/rolling-release')
       await ignoredError(Removefile, 'data/rolling-release-alpha')
     } catch (error: any) {
       console.log(error)
@@ -170,6 +176,8 @@ export const useAppStore = defineStore('app', () => {
     tipsShow,
     tipsMessage,
     tipsPosition,
+    modalStack,
+    modalZIndexCounter,
     showAbout,
     checkForUpdatesLoading,
     restartable,

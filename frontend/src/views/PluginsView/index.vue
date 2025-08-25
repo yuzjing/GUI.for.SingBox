@@ -236,13 +236,18 @@ const onSortUpdate = debounce(pluginsStore.savePlugins, 1000)
     <Button @click="handleImportPlugin" type="link" class="ml-auto">
       {{ t('plugins.hub') }}
     </Button>
-    <Dropdown :trigger="['hover', 'click']">
+    <Dropdown>
       <Button @click="handleUpdatePluginHub" :loading="pluginsStore.pluginHubLoading" type="link">
         {{ t('plugins.checkForUpdates') }}
       </Button>
       <template #overlay>
-        <div class="p-4">
-          <Button @click="handleUpdatePlugins" :disabled="noUpdateNeeded" type="text">
+        <div class="p-4 min-w-128">
+          <Button
+            @click="handleUpdatePlugins"
+            :disabled="noUpdateNeeded"
+            type="text"
+            class="w-full"
+          >
             {{ t('common.updateAll') }}
           </Button>
         </div>
@@ -278,8 +283,10 @@ const onSortUpdate = debounce(pluginsStore.savePlugins, 1000)
         </Tag>
         <div
           v-show="p.status !== 0"
-          :class="{ 0: '', 1: 'running', 2: 'stopped' }[p.status]"
-          class="status"
+          :style="{
+            color: { 1: 'greenyellow', 2: 'red' }[p.status],
+          }"
+          class="pr-4"
         >
           ●
         </div>
@@ -289,16 +296,13 @@ const onSortUpdate = debounce(pluginsStore.savePlugins, 1000)
       </template>
 
       <template #extra>
-        <Dropdown
-          v-if="appSettingsStore.app.pluginsView === View.Grid"
-          :trigger="['hover', 'click']"
-        >
+        <Dropdown v-if="appSettingsStore.app.pluginsView === View.Grid">
           <Button type="link" size="small" icon="more" />
           <template #overlay>
             <div class="flex flex-col gap-4 min-w-64 p-4">
               <Button
-                v-if="!p.disabled"
                 :loading="p.updating"
+                :disabled="p.disabled"
                 type="text"
                 size="small"
                 @click="handleUpdatePlugin(p)"
@@ -374,15 +378,21 @@ const onSortUpdate = debounce(pluginsStore.savePlugins, 1000)
 
       <div
         v-tips="p.description"
-        :class="{ description: appSettingsStore.app.pluginsView === View.Grid }"
+        :class="{ 'line-clamp-1': appSettingsStore.app.pluginsView === View.Grid }"
       >
         {{ t('plugin.description') }}
         :
         {{ p.description || '--' }}
       </div>
 
-      <div class="action">
-        <Button @click="handleEditPluginCode(p.id, p.name)" type="link" size="small" class="edit">
+      <div class="flex mt-4">
+        <Button
+          @click="handleEditPluginCode(p.id, p.name)"
+          type="link"
+          size="small"
+          class="pl-4"
+          style="margin-left: -8px"
+        >
           {{ t('plugins.source') }}
         </Button>
 
@@ -417,32 +427,3 @@ const onSortUpdate = debounce(pluginsStore.savePlugins, 1000)
 
   <Modal />
 </template>
-
-<style lang="less" scoped>
-.description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.action {
-  display: flex;
-  margin-top: 4px;
-  .edit {
-    margin-left: -4px;
-    padding-left: 4px;
-  }
-}
-
-.status {
-  padding-right: 4px;
-}
-
-.running {
-  color: greenyellow;
-}
-
-.stopped {
-  color: red;
-}
-</style>
